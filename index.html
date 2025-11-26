@@ -15,6 +15,7 @@
   <script defer src="js/players.js"></script>
   <script defer src="js/owners.js"></script>
   <script defer src="js/fixtures.js"></script>
+  <script defer src="js/lightbox.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -152,7 +153,12 @@
       <span class="footer-right">Made for sydneytitle cricket club.</span>
     </div>
   </footer>
-
+<div id="image-lightbox" class="image-lightbox">
+  <div class="image-lightbox-backdrop"></div>
+  <div class="image-lightbox-content">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+</div>
   <script>
     // existing link wiring from before
     document.addEventListener('DOMContentLoaded', function () {
