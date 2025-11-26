@@ -18,19 +18,26 @@ async function loadFixtures() {
     const fixtures = Array.isArray(data.fixtures) ? data.fixtures : [];
 
     if (!fixtures.length) {
-      if (listEl) listEl.innerHTML = '<li class="fixture-loading">No fixtures scheduled.</li>';
-      if (nextDateEl) nextDateEl.textContent = 'TBC';
-      if (nextNoteEl) nextNoteEl.textContent = 'Next fixture will appear here.';
+      showNoUpcoming(listEl, nextDateEl, nextNoteEl);
       return;
     }
 
-    // sort by date/time
+    // sort all fixtures by datetime
     fixtures.sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime));
 
-    // NEXT MATCH = first fixture in the future (or first in list if all past)
     const now = new Date();
+
+    // ONLY upcoming fixtures (today+future)
     const upcoming = fixtures.filter(f => new Date(f.dateTime) >= now);
-    const nextFixture = upcoming[0] || fixtures[0];
+
+    if (!upcoming.length) {
+      // all fixtures are in the past
+      showNoUpcoming(listEl, nextDateEl, nextNoteEl);
+      return;
+    }
+
+    // Next match = first upcoming fixture
+    const nextFixture = upcoming[0];
 
     if (nextFixture && nextDateEl && nextNoteEl) {
       const dt = new Date(nextFixture.dateTime);
@@ -42,10 +49,10 @@ async function loadFixtures() {
       nextNoteEl.textContent = pieces.join(' • ') || 'Details TBC';
     }
 
-    // Render full list
+    // Render ONLY upcoming fixtures
     if (listEl) {
       listEl.innerHTML = '';
-      fixtures.forEach(fix => {
+      upcoming.forEach(fix => {
         const li = document.createElement('li');
 
         const dt = new Date(fix.dateTime);
@@ -75,6 +82,14 @@ async function loadFixtures() {
       listEl.innerHTML = '<li class="fixture-loading">Could not load fixtures. Check <code>data/fixtures.json</code>.</li>';
     }
   }
+}
+
+function showNoUpcoming(listEl, nextDateEl, nextNoteEl) {
+  if (listEl) {
+    listEl.innerHTML = '<li class="fixture-loading">No upcoming fixtures scheduled.</li>';
+  }
+  if (nextDateEl) nextDateEl.textContent = 'TBC';
+  if (nextNoteEl) nextNoteEl.textContent = 'Next fixture will appear here when scheduled.';
 }
 
 function formatFixtureDate(dt) {
