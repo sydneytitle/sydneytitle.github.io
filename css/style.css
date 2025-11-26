@@ -53,7 +53,11 @@ a {
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(148, 163, 184, 0.25);
 }
-
+.site-header .logo {
+  border-radius: 50%;
+  border: 3px solid #ffffff20; /* subtle translucent white */
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+}
 .header-inner {
   display: flex;
   align-items: center;
@@ -199,19 +203,7 @@ a {
   box-shadow: 0 22px 45px rgba(0, 0, 0, 0.35);
 }
 
-/* (kept for possible reuse)
-.btn.ghost {
-  background: transparent;
-  border-color: rgba(148, 163, 184, 0.6);
-  color: #e5e7eb;
-}
 
-.btn.ghost:hover {
-  background: rgba(15, 23, 42, 0.7);
-}
-*/
-
-/* Hero side card */
 
 .info-card {
   background: rgba(248, 250, 252, 0.96);
@@ -269,6 +261,17 @@ a {
   color: #d1d5db;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+/* Prevent sticky header from covering anchored sections */
+#about,
+#fixtures,
+#squad,
+#owners,
+#join {
+  scroll-margin-top: 90px;  /* adjust if your header is taller/shorter */
+}
 /* Fixtures */
 
 .fixture-list {
@@ -601,12 +604,7 @@ a {
     align-items: stretch;
   }
 }
-.hero-inner {
-  display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
-  gap: 2rem;
-  align-items: center;
-}
+
 
 /* badge + card column */
 .hero-side {
@@ -624,16 +622,8 @@ a {
 }
 
 
-.badge-secondary {
-  background: #38bdf8;  /* blue-ish for keeper */
-  color: #0f172a;
-}
 
-.loading-text,
-.error-text {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
+
 .fixture-loading {
   font-size: 0.9rem;
   color: var(--text-muted);
@@ -648,7 +638,6 @@ a {
   width: 20px;
   height: 20px;
   margin-right: 8px;
-  display: inline-block;
 }
 /* Image lightbox */
 
