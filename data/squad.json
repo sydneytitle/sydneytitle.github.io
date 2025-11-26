@@ -16,44 +16,44 @@
     {
       "number": 3,
       "name": "A. Dhaliwal (Mani)",
-      "role": "Right hand opening batter • Right arm medium fast bowler"
+      "role": "Right arm all-rounder"
     },
     {
       "number": 4,
       "name": "Luke Ashen",
-      "role": "Player"
+      "role": "Left arm Batsman"
     },
     {
       "number": 5,
-      "name": "Jayant",
-      "role": "Left hand batsman • Medium pacer"
+      "name": "Jayant Rawat",
+      "role": "Left arm bowling all-rounder"
     },
     {
       "number": 6,
-      "name": "Ben",
-      "role": "Left hand opening bat • Wicketkeeper",
+      "name": "Ben Roggers",
+      "role": "Left arm batsman",
       "isKeeper": true
     },
     {
       "number": 7,
-      "name": "Jatinder",
+      "name": "Jatinder Mann",
       "role": "Right arm bowling all-rounder"
     },
     {
       "number": 8,
-      "name": "Karthik",
-      "role": "Left hand top-order batsman"
+      "name": "Karthik Singh",
+      "role": "Left arm batsman"
     },
     {
       "number": 9,
       "name": "Shyam Varghes",
-      "role": "Right arm wicketkeeper batsman",
+      "role": "Right arm batsman",
       "isKeeper": true
     },
   
     {
       "number": 10,
-      "name": "Rubal",
+      "name": "Rubal Goraya",
       "role": "Right arm off-spin all-rounder"
     },
     {
@@ -63,18 +63,23 @@
     },
     {
       "number": 12,
-      "name": "Sai Teja",
-      "role": "Right arm fast bowler"
+      "name": "Sai Teja Reddy",
+      "role": "Right arm medium-fast bowler"
     },
     {
       "number": 13,
       "name": "Paramvir Singh",
-      "role": "Left hand all-rounder"
+      "role": "Left arm bowler"
     },
     {
       "number": 14,
       "name": "Neeraj Rajagopal",
       "role": "Right hand batsman"
+    },
+    {
+      "number": 15,
+      "name": "Conner Smith",
+      "role": "Left arm spinner"
     }
   
   ]
