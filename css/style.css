@@ -24,7 +24,14 @@ body {
   background: radial-gradient(circle at top left, #1d4ed8 0, #020617 45%, #020617 100%);
   min-height: 100vh;
 }
-
+@media (max-width: 600px) {
+  body {
+    background:
+      radial-gradient(circle at 0 0, #020617 0, #1d4ed8 12%, transparent 50%,  #020617 30% ),
+      radial-gradient(circle at 100% 100%, #0d79ab 0, #0e6e9b 10%, transparent 55%),
+      #020617;
+  }
+}
 img {
   max-width: 100%;
   display: block;
@@ -53,11 +60,21 @@ a {
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(148, 163, 184, 0.25);
 }
+/* Header logo – keep full badge visible */
+/* Header logo – clean, readable, with border */
+.logo,
 .site-header .logo {
-  border-radius: 50%;
-  border: 3px solid #ffffff20; /* subtle translucent white */
-  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+  height: 44px;              /* adjust to 40–48px if needed */
+  width: auto;
+  border-radius: 10px;       /* soft corners for the shield */
+  object-fit: contain;
+  padding: 2px;              /* space between logo and border */
+  background: #0f172a;       /* dark backing to match header */
+  border: 2px solid rgba(255, 255, 255, 0.15);  /* subtle white border */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
 }
+
+
 .header-inner {
   display: flex;
   align-items: center;
@@ -71,10 +88,7 @@ a {
   gap: 0.75rem;
 }
 
-.logo {
-  width: 54px;
-  height: auto;
-}
+
 
 .brand-text h1 {
   font-size: 1.2rem;
@@ -350,13 +364,16 @@ html {
 }
 
 /* if you replace with <img>, add class="player-img" */
-.player-img {
+.player-img,
+.owner-img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;  /* keep faces visible */
 }
+
 
 .player-info {
   padding: 0.8rem 0.9rem 1rem;
@@ -398,6 +415,12 @@ html {
   align-items: center;
   justify-content: center;
 }
+.owner-photo {
+  position: relative;
+  aspect-ratio: 4 / 3;   /* try 4/3, 3/4, or 16/9 depending on your photos */
+  background: linear-gradient(135deg, #0f172a, #1f2937);
+  overflow: hidden;
+}
 
 .owner-photo.placeholder span {
   position: absolute;
@@ -413,13 +436,7 @@ html {
   padding: 0.5rem;
 }
 
-.owner-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+
 
 .owner-info {
   padding: 0.9rem 1rem 1.1rem;
@@ -680,3 +697,8 @@ html {
   max-height: 90vh;
   object-fit: contain;
 }
+
+
+
+
+

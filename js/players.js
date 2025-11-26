@@ -62,7 +62,7 @@ function renderPlayers(players, container) {
     // if the image isn't there yet, fall back to a "upload" placeholder
     img.onerror = function () {
       photoDiv.classList.add('placeholder');
-      photoDiv.innerHTML = `<span>Upload photo: assets/players/player${id}.jpg</span>`;
+      photoDiv.innerHTML = `<span>No Photo</span>`;
     };
 
     photoDiv.appendChild(img);

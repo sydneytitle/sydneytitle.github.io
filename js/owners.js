@@ -50,7 +50,7 @@ function renderOwners(owners, container) {
 
     img.onerror = function () {
       photoDiv.classList.add('placeholder');
-      photoDiv.innerHTML = `<span>Upload photo: assets/owners/owner${id}.jpg</span>`;
+      photoDiv.innerHTML = `<span>No Photo</span>`;
     };
 
     photoDiv.appendChild(img);
