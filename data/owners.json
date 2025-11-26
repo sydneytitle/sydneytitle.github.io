@@ -1,0 +1,16 @@
+{
+  "owners": [
+    {
+      "number": 1,
+      "name": "Owner One",
+      "title": "Founder & Club Owner",
+      "about": "Short bio about Owner One. Update this text in data/owners.json."
+    },
+    {
+      "number": 2,
+      "name": "Owner Two",
+      "title": "Co-owner / Manager",
+      "about": "Short bio about Owner Two. You can write a few sentences here."
+    }
+  ]
+}

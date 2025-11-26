@@ -1,0 +1,80 @@
+{
+  "season": 2026,
+  "players": [
+      {
+      "number": 1,
+      "name": "Shijit Chandran",
+      "role": "Right arm off-spin all-rounder",
+      "isCaptain": true
+    },
+    {
+      "number": 2,
+      "name": "Akhil Manikandan",
+      "role": "Right arm bowling all-rounder"
+    },
+  
+    {
+      "number": 3,
+      "name": "A. Dhaliwal (Mani)",
+      "role": "Right hand opening batter • Right arm medium fast bowler"
+    },
+    {
+      "number": 4,
+      "name": "Luke Ashen",
+      "role": "Player"
+    },
+    {
+      "number": 5,
+      "name": "Jayant",
+      "role": "Left hand batsman • Medium pacer"
+    },
+    {
+      "number": 6,
+      "name": "Ben",
+      "role": "Left hand opening bat • Wicketkeeper",
+      "isKeeper": true
+    },
+    {
+      "number": 7,
+      "name": "Jatinder",
+      "role": "Right arm bowling all-rounder"
+    },
+    {
+      "number": 8,
+      "name": "Karthik",
+      "role": "Left hand top-order batsman"
+    },
+    {
+      "number": 9,
+      "name": "Shyam Varghes",
+      "role": "Right arm wicketkeeper batsman",
+      "isKeeper": true
+    },
+  
+    {
+      "number": 10,
+      "name": "Rubal",
+      "role": "Right arm off-spin all-rounder"
+    },
+    {
+      "number": 11,
+      "name": "Rohit Sailly",
+      "role": "Right arm leg-spin all-rounder"
+    },
+    {
+      "number": 12,
+      "name": "Sai Teja",
+      "role": "Right arm fast bowler"
+    },
+    {
+      "number": 13,
+      "name": "Paramvir Singh",
+      "role": "Left hand all-rounder"
+    },
+    {
+      "number": 14,
+      "name": "Neeraj Rajagopal",
+      "role": "Right hand batsman"
+    }
+  ]
+}

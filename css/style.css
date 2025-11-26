@@ -1,0 +1,652 @@
+:root {
+  --primary: #143d8f;
+  --primary-dark: #0b2558;
+  --accent: #e3342f;
+  --bg: #050816;
+  --card-bg: #ffffff;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --radius-lg: 1.25rem;
+  --radius-pill: 999px;
+  --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.28);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text-main);
+  background: radial-gradient(circle at top left, #1d4ed8 0, #020617 45%, #020617 100%);
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Header */
+
+.site-header {
+  background: rgba(15, 23, 42, 0.96);
+  color: #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0;
+}
+
+.branding {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo {
+  width: 54px;
+  height: auto;
+}
+
+.brand-text h1 {
+  font-size: 1.2rem;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.tagline {
+  margin: 0.1rem 0 0;
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.main-nav a {
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.main-nav a:hover {
+  background: rgba(248, 250, 252, 0.1);
+  transform: translateY(-1px);
+}
+
+/* Hero */
+
+.hero {
+  padding: 3rem 0 1.5rem;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-text h2 {
+  font-size: clamp(1.9rem, 3vw, 2.4rem);
+  color: #f9fafb;
+  margin: 0 0 0.75rem;
+}
+
+.hero-text p {
+  margin: 0;
+  color: #e5e7eb;
+  max-width: 34rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+/* Buttons */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 2px solid transparent;
+  background: #1f2937;  /* dark grey */
+  color: #f9fafb;
+  transition: 0.2s ease;
+}
+
+
+.btn-outline-fb {
+  border-color: #1877f2;   /* Facebook blue */
+}
+
+.btn-outline-fb:hover {
+  background: #1877f2;
+  color: #fff;
+}
+
+.btn-outline-wa {
+  border-color: #25D366;   /* WhatsApp green */
+}
+
+.btn-outline-wa:hover {
+  background: #25D366;
+  color: #fff;
+}
+.btn:hover .btn-icon {
+  filter: brightness(1000%);
+}
+.btn.primary {
+  /* Facebook-like blue */
+  background: #1877f2;
+  color: #f9fafb;
+  box-shadow: var(--shadow-soft);
+}
+
+.btn.primary:hover {
+  background: #1559b8;
+  transform: translateY(-1px);
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.35);
+}
+
+/* WHATSAPP GREEN BUTTON */
+
+.btn.whatsapp {
+  background: #25d366;           /* WhatsApp green */
+  color: #ffffff;
+  box-shadow: var(--shadow-soft);
+}
+
+.btn.whatsapp:hover {
+  background: #1ebe57;
+  transform: translateY(-1px);
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.35);
+}
+
+/* (kept for possible reuse)
+.btn.ghost {
+  background: transparent;
+  border-color: rgba(148, 163, 184, 0.6);
+  color: #e5e7eb;
+}
+
+.btn.ghost:hover {
+  background: rgba(15, 23, 42, 0.7);
+}
+*/
+
+/* Hero side card */
+
+.info-card {
+  background: rgba(248, 250, 252, 0.96);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.2rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.info-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.next-match-date {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0.2rem 0;
+}
+
+.next-match-note {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.note-small {
+  margin-top: 0.7rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Sections */
+
+.section {
+  padding: 2.5rem 0;
+}
+
+.section.alt {
+  background: rgba(15, 23, 42, 0.96);
+  color: #e5e7eb;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  margin: 0 0 0.5rem;
+  color: #f9fafb;              /* brighter so About & Squad are visible */
+}
+
+.section-intro {
+  margin: 0 0 1.5rem;
+  max-width: 42rem;
+  color: #e5e7eb;
+}
+
+.section.alt .section-intro {
+  color: #d1d5db;
+}
+
+/* Fixtures */
+
+.fixture-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.75rem;
+}
+
+.fixture-list li {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: var(--radius-lg);
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+}
+
+.section.alt .fixture-list li {
+  background: rgba(15, 23, 42, 0.7);
+}
+
+.fixture-date {
+  font-weight: 600;
+}
+
+.fixture-vs {
+  font-size: 0.85rem;
+  color: #cbd5f5;
+  margin-left: 0.2rem;
+}
+
+/* PLAYERS GRID (cards instead of table) */
+
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.player-card {
+  background: rgba(248, 250, 252, 0.96);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* highlight captain card slightly */
+.player-card.captain {
+  border: 2px solid #f59e0b;
+}
+
+.player-photo {
+  position: relative;
+  padding-top: 62%;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.player-photo.placeholder span {
+  position: absolute;
+  inset: 0.75rem;
+  border-radius: 0.9rem;
+  border: 1px dashed rgba(148, 163, 184, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #e5e7eb;
+  padding: 0.5rem;
+}
+
+/* if you replace with <img>, add class="player-img" */
+.player-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.player-info {
+  padding: 0.8rem 0.9rem 1rem;
+}
+
+.player-name {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.player-role {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.owners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.owner-card {
+  background: rgba(248, 250, 252, 0.96);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.owner-photo {
+  position: relative;
+  padding-top: 56%;
+  background: linear-gradient(135deg, #0f172a, #1f2937);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.owner-photo.placeholder span {
+  position: absolute;
+  inset: 0.75rem;
+  border-radius: 0.9rem;
+  border: 1px dashed rgba(148, 163, 184, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #e5e7eb;
+  padding: 0.5rem;
+}
+
+.owner-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.owner-info {
+  padding: 0.9rem 1rem 1.1rem;
+}
+
+.owner-name {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+}
+
+.owner-title {
+  margin: 0 0 0.4rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.owner-about {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--text-main);
+}
+
+/* reuse loading/error text styles if not already present */
+.loading-text,
+.error-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: #facc15;
+  color: #1f2937;
+}
+.badge-captain {
+  background: #fa1537; /* gold */
+  color: #1f2937;
+}
+
+.badge-vice {
+  background: #f2fa60; /* blue */
+  color: #2a290f;
+}
+
+.badge-secondary {
+  background: #384ef8; /* light blue for wicketkeeper */
+  color: #0f172a;
+}
+/* Join section */
+
+.join-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.section.alt .section-title {
+  color: #f9fafb;
+}
+
+.section.alt .section-intro {
+  color: #e5e7eb;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-list li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.contact-list a {
+  color: #bfdbfe;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+.social-card {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.2rem;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+}
+
+.social-card h3 {
+  margin-top: 0;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.8rem;
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.8);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #e5e7eb;
+  background: radial-gradient(circle at 20% 0, rgba(248, 250, 252, 0.05), transparent 55%);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.2s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+  border-color: #fbbf24;
+}
+
+/* Footer */
+
+.site-footer {
+  padding: 1.25rem 0 1.5rem;
+  color: #9ca3af;
+  font-size: 0.8rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-right {
+  opacity: 0.85;
+}
+
+/* Responsive */
+
+@media (max-width: 800px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .main-nav {
+    font-size: 0.85rem;
+  }
+
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .join-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 2rem;
+  }
+
+  .brand-text h1 {
+    font-size: 1.05rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+/* badge + card column */
+.hero-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.club-badge-hero img {
+  width: 120px;       /* bigger logo */
+  height: auto;
+  border-radius: 12px; /* square edges look cleaner for cricket logos */
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.6);
+}
+
+
+.badge-secondary {
+  background: #38bdf8;  /* blue-ish for keeper */
+  color: #0f172a;
+}
+
+.loading-text,
+.error-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.fixture-loading {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.loading-text,
+.error-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.btn-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  display: inline-block;
+}
