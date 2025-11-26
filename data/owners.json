@@ -2,9 +2,9 @@
   "owners": [
     {
       "number": 1,
-      "name": "Owner One",
+      "name": "Ray Pillai",
       "title": "Founder & Club Owner",
-      "about": "Short bio about Owner One. Update this text in data/owners.json."
+      "about": "Short bio about Owner One."
     },
     {
       "number": 2,
