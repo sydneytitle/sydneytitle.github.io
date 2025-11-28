@@ -80,7 +80,11 @@
       "number": 15,
       "name": "Conner Smith",
       "role": "Left arm spinner"
-    }
-  
+    },
+  {
+    "number":16,
+    "name":"Hashan Upendra Wanasekara",
+    "role":"Left arm batsman"
+  }
   ]
 }
