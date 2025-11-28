@@ -7,7 +7,7 @@ const EXTERNAL_LINKS = {
 
   // WhatsApp chat / group. Example:
   // 'https://wa.me/61400111222'
-  whatsapp: 'https://wa.me/61414225354',
+  whatsapp: 'https://wa.me/61414225354?text=Hi%20I%20would%20like%20to%20know%20more%20about%20the%20Sydney%20Title%20Cricket%20Club',
 
   // Instagram handle
   instagram: '', // e.g. 'https://instagram.com/sydneytitleclub'
