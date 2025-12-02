@@ -80,6 +80,7 @@ a {
   align-items: center;
   justify-content: space-between;
   padding: 0.65rem 0;
+  position: relative;
 }
 
 .branding {
@@ -108,6 +109,7 @@ a {
   display: flex;
   gap: 1rem;
   font-size: 0.9rem;
+
 }
 
 .main-nav a {
@@ -119,6 +121,45 @@ a {
 .main-nav a:hover {
   background: rgba(248, 250, 252, 0.1);
   transform: translateY(-1px);
+}
+/* Hamburger toggle (hidden on desktop) */
+.nav-toggle {
+  display: none;                 /* shown only on small screens */
+  width: 40px;
+  height: 40px;
+  margin-left: auto;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.nav-toggle span + span {
+  margin-top: 5px;
+}
+
+/* transform into X when open */
+.nav-toggle.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* Hero */
@@ -282,6 +323,7 @@ html {
 #about,
 #fixtures,
 #squad,
+#news,
 #owners,
 #join {
   scroll-margin-top: 90px;  /* adjust if your header is taller/shorter */
@@ -580,13 +622,44 @@ html {
 
 @media (max-width: 800px) {
   .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;               /* keep logo + burger on one line */
+    align-items: center;
+    justify-content: space-between;
     gap: 0.6rem;
   }
 
+  .branding {
+    flex: 1;                           /* let branding take available space */
+  }
+
+  /* show hamburger on mobile */
+  .nav-toggle {
+    display: inline-block;
+  }
+
+  /* mobile dropdown nav */
   .main-nav {
-    font-size: 0.85rem;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background: rgba(15, 23, 42, 0.98);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+    padding: 0.6rem 1.25rem 0.9rem;
+    display: none;                     /* hidden until nav-open added by JS */
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.9rem;
+    z-index: 15;
+  }
+
+  .main-nav a {
+    padding: 0.4rem 0;
+  }
+
+  /* show when JS adds this class */
+  .main-nav.nav-open {
+    display: flex;
   }
 
   .hero-inner {
@@ -649,6 +722,8 @@ html {
 }
 /* Image lightbox */
 
+/* Image lightbox */
+
 .image-lightbox {
   position: fixed;
   inset: 0;
@@ -680,6 +755,10 @@ html {
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+  background: #020617;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .image-lightbox-content img {
@@ -687,6 +766,121 @@ html {
   max-width: 100%;
   max-height: 90vh;
   object-fit: contain;
+}
+
+/* Lightbox nav arrows */
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  font-size: 1.2rem;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.lightbox-prev {
+  left: 0.6rem;
+}
+
+.lightbox-next {
+  right: 0.6rem;
+}
+
+.lightbox-nav:hover {
+  background: rgba(15, 23, 42, 1);
+  transform: translateY(-50%) translateY(-1px);
+}
+
+.image-lightbox-caption {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #e5e7eb;
+  font-size: 0.85rem;
+  background: rgba(15, 23, 42, 0.85);
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+}
+.image-lightbox.is-grid .image-lightbox-content {
+  display: none; /* hide the single big image + arrows in grid mode */
+}
+.image-lightbox.is-grid {
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.image-lightbox-thumbs {
+  position: relative;
+  z-index: 1;
+  max-width: min(900px, 90vw);
+  max-height: 90vh;
+  padding: 1rem;
+  background: #020617;
+  border-radius: 1rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+
+  /* Center the grid block inside the overlay */
+  margin: 0 auto;
+
+  /* Grid that shrinks to its content and is centered */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  justify-content: center;   /* center the columns within the container */
+  gap: 0.75rem;
+  overflow-y: auto;
+}
+
+.image-lightbox-thumb {
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.image-lightbox-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 0.6rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.image-lightbox-thumb:hover img {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Optional: hide the numeric "1 / N" caption in grid mode */
+.image-lightbox.is-grid .image-lightbox-caption {
+  display: none;
+}
+/* News "X photos" badge on the slide image */
+
+.news-photo-count {
+  position: absolute;
+  left: 0.65rem;
+  bottom: 0.65rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: rgba(15, 23, 42, 0.85);
+  color: #f9fafb;
 }
 
 
@@ -755,13 +949,198 @@ html {
   background: rgba(15, 23, 42, 0.95);
 }
 
-/* Stack on mobile */
-@media (max-width: 800px) {
-  .cricheroes-layout {
+
+/* News carousel */
+
+.news-carousel {
+  position: relative;
+  margin-top: 1.5rem;
+  background: rgba(15, 23, 42, 0.96);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1rem 1.5rem;
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.news-slides {
+  position: relative;
+  min-height: 170px;
+}
+
+.news-slide {
+  display: none;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 2fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.news-slide.is-active {
+  display: grid;
+}
+
+.news-image-wrap {
+  position: relative;
+  border-radius: 0.9rem;
+  overflow: hidden;
+  background: radial-gradient(circle at 0 0, #1d4ed8 0, #020617 60%);
+  aspect-ratio: 16/9;  /* or 4/3 depending on your photos */
+  height: auto;        /* override min-height */
+  min-height: unset;
+
+}
+
+.news-image-wrap.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+}
+
+.news-image-wrap.placeholder span {
+  font-size: 0.8rem;
+  color: #e5e7eb;
+  text-align: center;
+}
+
+.news-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+   object-position: center;
+  display: block;
+}
+
+.news-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.news-title {
+  margin: 0 0 0.3rem;
+  font-size: 1rem;
+  color: #f9fafb;
+}
+
+.news-meta {
+  margin: 0 0 0.4rem;
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.news-summary {
+  margin: 0 0 0.6rem;
+  font-size: 0.9rem;
+  color: #e5e7eb;
+}
+
+.news-link {
+  font-size: 0.85rem;
+  color: #bfdbfe;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  align-self: flex-start;
+}
+
+/* Carousel controls */
+
+.news-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: rgba(15, 23, 42, 0.85);
+  color: #e5e7eb;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.news-prev {
+  left: 0.5rem;
+}
+
+.news-next {
+  right: 0.5rem;
+}
+
+.news-nav:hover {
+  transform: translateY(-50%) translateY(-1px);
+  background: rgba(15, 23, 42, 1);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+}
+
+/* Dots */
+
+.news-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+.news-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: none;
+  padding: 0;
+  background: rgba(148, 163, 184, 0.6);
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, width 0.15s ease;
+}
+
+.news-dot.is-active {
+  width: 18px;
+  background: #fbbf24;
+  transform: translateY(-1px);
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .news-carousel {
+    padding: 1rem 0.7rem 1.3rem;
+  }
+  .news-image-wrap {
+    aspect-ratio: 4/3; /* works for portrait-heavy images */
+  }
+  .news-slide {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .cricheroes-embed-wrapper iframe {
-    height: 420px;
+  .news-image-wrap {
+    min-height: 180px;
   }
+
+  .news-nav {
+    display: none; /* dots only on small screens */
+  }
+}
+
+
+/* In normal (single-image) mode, hide the thumbs container completely */
+.image-lightbox:not(.is-grid) .image-lightbox-thumbs {
+  display: none;
+}
+
+/* Make sure the main content block is perfectly centered */
+.image-lightbox-content {
+  margin: 0 auto;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Keep grid behaviour the same – only show thumbs in grid mode */
+.image-lightbox.is-grid .image-lightbox-content {
+  display: none;
 }
