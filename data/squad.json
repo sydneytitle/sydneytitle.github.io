@@ -10,7 +10,8 @@
     {
       "number": 2,
       "name": "Akhil Manikandan",
-      "role": "Right arm bowling all-rounder"
+      "role": "Right arm bowling all-rounder",
+     
     },
   
     {
@@ -18,11 +19,15 @@
       "name": "A. Dhaliwal (Mani)",
       "role": "Right arm all-rounder"
     },
-
+{
+      "number": 4,
+      "name": "Vishwa Ramkumar",
+      "role": "Right arm leg-spinner"
+    },
     {
       "number": 5,
-      "name": "Jayant Rawat",
-      "role": "Left arm bowling all-rounder"
+      "name": "Sayed Rihan",
+      "role": "Left arm Batting all-rounder"
     },
     {
       "number": 6,
