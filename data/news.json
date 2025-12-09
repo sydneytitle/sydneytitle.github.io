@@ -1,7 +1,18 @@
 {
   "items": [
+    
+     {
+      "title": "MSL Squad 2025",
+      "date": "2025-12-09",
+      "summary": "Sydney Title Club Announced their 16 members squad for the 2025 MSL.",
+      "folder": "mslsquad25",
+      "link": "https://www.facebook.com/photo/?fbid=864335679881654&set=pb.100089156906232.-2207520000",
+      "images": [
+        "../assets/news/mslsquad25/squad.jpg"
+      ]
+    },
     {
-      "title": "Season Opening Night 2026",
+      "title": "Season Opening Night 2025",
       "date": "2025-11-25",
       "summary": "Sydney Title Club hosted their opening night for the 2026 members.",
       "folder": "2026Intro",
